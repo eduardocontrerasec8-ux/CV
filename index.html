@@ -1,216 +1,160 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Eduardo Contreras Jaimes | Software Engineer</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Eduardo Contreras Jaimes | Ingeniero TI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: "Times New Roman", serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
 
-<style>
-:root {
-    --bg: #f4f6f9;
-    --card: #ffffff;
-    --text: #1a1a1a;
-    --accent: #1f4fd8;
-}
+        .cv-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 50px 70px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
 
-body.dark {
-    --bg: #0f172a;
-    --card: #020617;
-    --text: #e5e7eb;
-    --accent: #38bdf8;
-}
+        h1 {
+            font-size: 32px;
+            margin-bottom: 5px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
 
-body {
-    margin: 0;
-    font-family: "Inter", "Segoe UI", Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    transition: 0.4s;
-}
+        .subtitle {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
 
-.container {
-    max-width: 900px;
-    margin: 40px auto;
-    background: var(--card);
-    padding: 60px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    animation: fadeIn 1s ease;
-}
+        .contact {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
 
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-}
+        h2 {
+            font-size: 18px;
+            border-bottom: 1px solid #000;
+            padding-bottom: 4px;
+            margin-top: 30px;
+            text-transform: uppercase;
+        }
 
-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
+        p {
+            font-size: 15px;
+            line-height: 1.6;
+            text-align: justify;
+        }
 
-header h1 {
-    font-size: 38px;
-    margin-bottom: 8px;
-}
+        ul {
+            margin-top: 10px;
+        }
 
-header p {
-    margin: 4px 0;
-    font-size: 16px;
-}
+        li {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
 
-.actions {
-    text-align: center;
-    margin-top: 20px;
-}
+        .job-title {
+            font-weight: bold;
+        }
 
-button {
-    background: var(--accent);
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 6px;
-    margin: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
+        .job-date {
+            float: right;
+            font-style: italic;
+        }
 
-section {
-    margin-top: 40px;
-}
-
-section h2 {
-    border-left: 5px solid var(--accent);
-    padding-left: 12px;
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.job {
-    margin-bottom: 20px;
-}
-
-.job-title {
-    font-weight: 600;
-}
-
-.job-date {
-    float: right;
-    opacity: 0.7;
-}
-
-ul {
-    margin-top: 8px;
-}
-
-li {
-    margin-bottom: 6px;
-}
-
-footer {
-    text-align: center;
-    margin-top: 50px;
-    opacity: 0.6;
-    font-size: 14px;
-}
-</style>
+        .clear {
+            clear: both;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+<div class="cv-container">
 
-<header>
-    <h1>Eduardo Contreras Jaimes</h1>
-    <p>Ingeniero en Tecnologías de la Información | Desarrollador Web</p>
-    <p>📧 eduardocontreras.ec8@gmail.com · 📱 461 317 1779 · México</p>
-    <p>GitHub: github.com/eduardocontrerasec8-ux</p>
-
-    <div class="actions">
-        <button onclick="toggleDarkMode()">🌙 Modo oscuro</button>
-        <button onclick="window.print()">⬇ Descargar PDF</button>
+    <h1>EDUARDO CONTRERAS JAIMES</h1>
+    <div class="subtitle">Ingeniero en Tecnologías de la Información – Desarrollador Web</div>
+    <div class="contact">
+        📧 eduardocontreras.ec8@gmail.com | 📱 461 317 1779 | México <br>
+        GitHub: github.com/eduardocontrerasec8-ux
     </div>
-</header>
 
-<section>
-<h2>Perfil Profesional</h2>
-<p>
-Ingeniero en Tecnologías de la Información con experiencia en desarrollo de aplicaciones web con PHP y Symfony, 
-especializado en integración de bases de datos PostgreSQL mediante SQL directo. Experiencia en sistemas de 
-autenticación, control de accesos y dashboards administrativos. Enfocado en calidad de software, seguridad 
-y trabajo colaborativo con GitHub.
-</p>
-</section>
+    <h2>Perfil Profesional</h2>
+    <p>
+        Ingeniero en Tecnologías de la Información con experiencia en el desarrollo de aplicaciones web utilizando PHP y Symfony, 
+        especializado en integración de bases de datos PostgreSQL mediante consultas SQL directas. Experiencia en la construcción 
+        de sistemas de autenticación, control de accesos y dashboards administrativos. Enfocado en la calidad del software, 
+        seguridad de la información y trabajo colaborativo mediante control de versiones con GitHub.
+    </p>
 
-<section>
-<h2>Experiencia Profesional</h2>
+    <h2>Experiencia Profesional</h2>
 
-<div class="job">
-    <div class="job-title">Desarrollador Web — InfoExpo
-        <span class="job-date">Jul 2025 – Dic 2025</span>
-    </div>
+    <div class="job-title">Desarrollador Web — InfoExpo</div>
+    <div class="job-date">Julio 2025 – Diciembre 2025</div>
+    <div class="clear"></div>
     <ul>
         <li>Desarrollo de aplicaciones web con PHP, Symfony 3, JavaScript, HTML y CSS.</li>
         <li>Integración de PostgreSQL mediante consultas SQL directas sin ORM.</li>
-        <li>Implementación de sistemas de login, registro, recuperación de contraseña y roles.</li>
-        <li>Desarrollo de dashboards administrativos para gestión de eventos.</li>
-        <li>Control de versiones y trabajo colaborativo con GitHub.</li>
+        <li>Implementación de sistemas de autenticación, registro de usuarios y control de roles.</li>
+        <li>Desarrollo de dashboards administrativos para gestión de eventos y usuarios.</li>
+        <li>Uso de GitHub para control de versiones y trabajo colaborativo.</li>
     </ul>
-</div>
 
-<div class="job">
-    <div class="job-title">Técnico Auxiliar de Instalaciones — MSITGROUP
-        <span class="job-date">Jun 2024 – Sep 2024</span>
-    </div>
+    <div class="job-title">Técnico Auxiliar de Instalaciones (Infraestructura) — MSITGROUP</div>
+    <div class="job-date">Junio 2024 – Septiembre 2024</div>
+    <div class="clear"></div>
     <ul>
-        <li>Instalación y mantenimiento de sistemas CCTV.</li>
-        <li>Implementación de cableado estructurado.</li>
-        <li>Diagnóstico y solución de fallas técnicas.</li>
-        <li>Soporte a incidencias en campo.</li>
+        <li>Instalación y mantenimiento de sistemas de videovigilancia (CCTV).</li>
+        <li>Implementación de cableado estructurado y pruebas de red.</li>
+        <li>Diagnóstico y solución de fallas técnicas en campo.</li>
+        <li>Atención a incidencias garantizando continuidad operativa.</li>
     </ul>
+
+    <h2>Educación</h2>
+
+    <p><strong>Ingeniero en Tecnologías de la Información</strong> — Instituto Tecnológico de Roque <span style="float:right;">Diciembre 2025</span></p>
+    <p>
+        Formación en desarrollo de software, aplicaciones web, bases de datos relacionales y sistemas de información.
+    </p>
+
+    <p><strong>Técnico Programador</strong> — CECyTE San Juan de la Vega <span style="float:right;">2016 – 2019</span></p>
+    <p>
+        Fundamentos en programación Java, C#, estructuras de datos y bases de datos con PostgreSQL.
+    </p>
+
+    <h2>Habilidades Técnicas</h2>
+    <ul>
+        <li>Lenguajes: PHP, JavaScript, SQL, Java, C#</li>
+        <li>Frameworks: Symfony 3.x / 7.x</li>
+        <li>Frontend: HTML5, CSS3, JavaScript puro</li>
+        <li>Bases de datos: PostgreSQL, MySQL</li>
+        <li>Control de versiones: Git, GitHub</li>
+        <li>Seguridad: Autenticación, control de accesos, validaciones</li>
+    </ul>
+
+    <h2>Certificaciones</h2>
+    <ul>
+        <li>CCNAv7: Switching, Routing and Wireless Essentials</li>
+        <li>CCNAv7: Introduction to Networks</li>
+    </ul>
+
+    <h2>Competencias Profesionales</h2>
+    <ul>
+        <li>Aprendizaje rápido y adaptación tecnológica</li>
+        <li>Pensamiento analítico y resolución de problemas</li>
+        <li>Organización, responsabilidad y atención al detalle</li>
+        <li>Compromiso con la calidad del software</li>
+    </ul>
+
 </div>
-
-</section>
-
-<section>
-<h2>Educación</h2>
-<ul>
-    <li><strong>Ingeniero en Tecnologías de la Información</strong> — Instituto Tecnológico de Roque (2025)</li>
-    <li><strong>Técnico Programador</strong> — CECyTE San Juan de la Vega (2016 – 2019)</li>
-</ul>
-</section>
-
-<section>
-<h2>Habilidades Técnicas</h2>
-<ul>
-    <li>PHP, JavaScript, SQL, Java, C#</li>
-    <li>Symfony 3.x / 7.x</li>
-    <li>PostgreSQL, MySQL</li>
-    <li>Git, GitHub</li>
-    <li>HTML5, CSS3</li>
-    <li>Seguridad web y control de accesos</li>
-</ul>
-</section>
-
-<section>
-<h2>Certificaciones</h2>
-<ul>
-    <li>CCNAv7: Switching, Routing and Wireless Essentials</li>
-    <li>CCNAv7: Introduction to Networks</li>
-</ul>
-</section>
-
-<footer>
-    © 2026 Eduardo Contreras Jaimes — Software Engineer
-</footer>
-
-</div>
-
-<script>
-function toggleDarkMode() {
-    document.body.classList.toggle("dark");
-}
-</script>
 
 </body>
 </html>
-
