@@ -2,159 +2,477 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Eduardo Contreras Jaimes | Ingeniero TI</title>
+    <title>Eduardo Contreras Jaimes | Ingeniero en Tecnologías de la Información</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
-        body {
-            font-family: "Times New Roman", serif;
-            background: #f4f4f4;
+        /* Estilo Harvard - Profesional y elegante */
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #800000; /* Rojo Harvard */
+            --accent-color: #2c3e50;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #495057;
+            --line-color: #d4d4d4;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-
+        
+        body {
+            font-family: "Georgia", "Times New Roman", serif;
+            background-color: var(--light-gray);
+            color: var(--primary-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
         .cv-container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: #ffffff;
-            padding: 50px 70px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 210mm; /* Tamaño A4 */
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            padding: 30mm 25mm; /* Márgenes para impresión */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
         }
-
+        
+        /* Cabecera estilo Harvard */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
         h1 {
             font-size: 32px;
-            margin-bottom: 5px;
-            text-align: center;
+            font-weight: 700;
             letter-spacing: 1px;
-        }
-
-        .subtitle {
-            text-align: center;
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-
-        .contact {
-            text-align: center;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            font-size: 18px;
-            border-bottom: 1px solid #000;
-            padding-bottom: 4px;
-            margin-top: 30px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
             text-transform: uppercase;
         }
-
-        p {
-            font-size: 15px;
-            line-height: 1.6;
-            text-align: justify;
+        
+        .title {
+            font-size: 18px;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
         }
-
-        ul {
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 14px;
+            color: var(--dark-gray);
             margin-top: 10px;
         }
-
-        li {
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Secciones */
+        .section {
+            margin-bottom: 24px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--line-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Texto general */
+        p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-align: justify;
+            hyphens: auto;
+        }
+        
+        /* Experiencia laboral */
+        .job {
+            margin-bottom: 20px;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             margin-bottom: 8px;
-            font-size: 15px;
         }
-
+        
         .job-title {
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--accent-color);
         }
-
+        
+        .job-company {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
         .job-date {
-            float: right;
             font-style: italic;
+            color: var(--dark-gray);
+            font-size: 14px;
+            white-space: nowrap;
         }
-
-        .clear {
-            clear: both;
+        
+        .job-description {
+            margin-left: 15px;
+        }
+        
+        /* Listas */
+        ul {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+        
+        li {
+            margin-bottom: 6px;
+            font-size: 14px;
+            text-align: justify;
+        }
+        
+        /* Educación */
+        .education-item {
+            margin-bottom: 15px;
+        }
+        
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .education-degree {
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        
+        .education-date {
+            font-style: italic;
+            color: var(--dark-gray);
+        }
+        
+        .education-institution {
+            font-weight: 600;
+        }
+        
+        /* Habilidades */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .skill-category {
+            margin-bottom: 15px;
+        }
+        
+        .skill-category h4 {
+            font-size: 15px;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        /* Botones de acción */
+        .action-buttons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: "Georgia", serif;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #660000;
+        }
+        
+        /* Para impresión/PDF */
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                padding: 20mm 25mm;
+                max-width: 100%;
+            }
+            
+            .action-buttons {
+                display: none;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cv-container {
+                padding: 15mm 10mm;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .job-header, .education-header {
+                flex-direction: column;
+            }
+            
+            .job-date, .education-date {
+                align-self: flex-start;
+                margin-top: 5px;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="cv-container">
+<div class="action-buttons">
+    <button class="btn" id="downloadPdf">Descargar PDF</button>
+    <button class="btn" id="printCv">Imprimir</button>
+</div>
 
-    <h1>EDUARDO CONTRERAS JAIMES</h1>
-    <div class="subtitle">Ingeniero en Tecnologías de la Información – Desarrollador Web</div>
-    <div class="contact">
-        📧 eduardocontreras.ec8@gmail.com | 📱 461 317 1779 | México <br>
-        GitHub: github.com/eduardocontrerasec8-ux
+<div class="cv-container" id="cvContent">
+
+    <div class="header">
+        <h1>Eduardo Contreras Jaimes</h1>
+        <div class="title">Ingeniero en Tecnologías de la Información</div>
+        <div class="contact-info">
+            <div class="contact-item">📧 eduardocontreras.ec8@gmail.com</div>
+            <div class="contact-item">📱 461 317 1779</div>
+            <div class="contact-item">📍 México</div>
+            <div class="contact-item">🔗 github.com/eduardocontrerasec8-ux</div>
+        </div>
     </div>
 
-    <h2>Perfil Profesional</h2>
-    <p>
-        Ingeniero en Tecnologías de la Información con experiencia en el desarrollo de aplicaciones web utilizando PHP y Symfony, 
-        especializado en integración de bases de datos PostgreSQL mediante consultas SQL directas. Experiencia en la construcción 
-        de sistemas de autenticación, control de accesos y dashboards administrativos. Enfocado en la calidad del software, 
-        seguridad de la información y trabajo colaborativo mediante control de versiones con GitHub.
-    </p>
+    <div class="section">
+        <h2 class="section-title">Perfil Profesional</h2>
+        <p>
+            Ingeniero en Tecnologías de la Información con experiencia en desarrollo de aplicaciones web utilizando PHP y Symfony, 
+            especializado en integración de bases de datos PostgreSQL mediante consultas SQL directas. Experiencia en construcción 
+            de sistemas de autenticación, control de accesos y dashboards administrativos. Enfocado en calidad del software, 
+            seguridad de la información y trabajo colaborativo mediante control de versiones con GitHub. Con conocimientos en 
+            tecnologías emergentes como Kotlin Multiplataforma y análisis de Big Data.
+        </p>
+    </div>
 
-    <h2>Experiencia Profesional</h2>
+    <div class="section">
+        <h2 class="section-title">Experiencia Profesional</h2>
+        
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Desarrollador Web</div>
+                    <div class="job-company">InfoExpo</div>
+                </div>
+                <div class="job-date">Julio 2025 – Diciembre 2025</div>
+            </div>
+            <div class="job-description">
+                <ul>
+                    <li>Desarrollo de aplicaciones web con PHP, Symfony 3, JavaScript, HTML y CSS.</li>
+                    <li>Integración de PostgreSQL mediante consultas SQL directas sin ORM.</li>
+                    <li>Implementación de sistemas de autenticación, registro de usuarios y control de roles.</li>
+                    <li>Desarrollo de dashboards administrativos para gestión de eventos y usuarios.</li>
+                    <li>Uso de GitHub para control de versiones y trabajo colaborativo.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Técnico Auxiliar de Instalaciones (Infraestructura)</div>
+                    <div class="job-company">MSITGROUP</div>
+                </div>
+                <div class="job-date">Junio 2024 – Septiembre 2024</div>
+            </div>
+            <div class="job-description">
+                <ul>
+                    <li>Instalación y mantenimiento de sistemas de videovigilancia (CCTV).</li>
+                    <li>Implementación de cableado estructurado y pruebas de red.</li>
+                    <li>Diagnóstico y solución de fallas técnicas en campo.</li>
+                    <li>Atención a incidencias garantizando continuidad operativa.</li>
+                    <li>Mantenimiento preventivo y correctivo de equipos de cómputo.</li>
+                    <li>Instalación y configuración de software ofimático (Microsoft Office, suites de productividad).</li>
+                    <li>Soporte técnico a usuarios finales en hardware y software.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    <div class="job-title">Desarrollador Web — InfoExpo</div>
-    <div class="job-date">Julio 2025 – Diciembre 2025</div>
-    <div class="clear"></div>
-    <ul>
-        <li>Desarrollo de aplicaciones web con PHP, Symfony 3, JavaScript, HTML y CSS.</li>
-        <li>Integración de PostgreSQL mediante consultas SQL directas sin ORM.</li>
-        <li>Implementación de sistemas de autenticación, registro de usuarios y control de roles.</li>
-        <li>Desarrollo de dashboards administrativos para gestión de eventos y usuarios.</li>
-        <li>Uso de GitHub para control de versiones y trabajo colaborativo.</li>
-    </ul>
+    <div class="section">
+        <h2 class="section-title">Educación</h2>
+        
+        <div class="education-item">
+            <div class="education-header">
+                <div class="education-degree">Ingeniero en Tecnologías de la Información</div>
+                <div class="education-date">Diciembre 2025</div>
+            </div>
+            <div class="education-institution">Instituto Tecnológico de Roque</div>
+            <p>Formación en desarrollo de software, aplicaciones web, bases de datos relacionales y sistemas de información.</p>
+        </div>
+        
+        <div class="education-item">
+            <div class="education-header">
+                <div class="education-degree">Técnico Programador</div>
+                <div class="education-date">2016 – 2019</div>
+            </div>
+            <div class="education-institution">CECyTE San Juan de la Vega</div>
+            <p>Fundamentos en programación Java, C#, estructuras de datos y bases de datos con PostgreSQL.</p>
+        </div>
+    </div>
 
-    <div class="job-title">Técnico Auxiliar de Instalaciones (Infraestructura) — MSITGROUP</div>
-    <div class="job-date">Junio 2024 – Septiembre 2024</div>
-    <div class="clear"></div>
-    <ul>
-        <li>Instalación y mantenimiento de sistemas de videovigilancia (CCTV).</li>
-        <li>Implementación de cableado estructurado y pruebas de red.</li>
-        <li>Diagnóstico y solución de fallas técnicas en campo.</li>
-        <li>Atención a incidencias garantizando continuidad operativa.</li>
-    </ul>
+    <div class="section">
+        <h2 class="section-title">Habilidades Técnicas</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>Lenguajes de Programación</h4>
+                <ul>
+                    <li>PHP</li>
+                    <li>JavaScript</li>
+                    <li>SQL</li>
+                    <li>Java</li>
+                    <li>C#</li>
+                    <li>Kotlin Multiplataforma</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h4>Tecnologías & Frameworks</h4>
+                <ul>
+                    <li>Symfony 3.x / 7.x</li>
+                    <li>HTML5, CSS3</li>
+                    <li>Big Data (Conceptos y fundamentos)</li>
+                    <li>Análisis de datos</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h4>Bases de Datos</h4>
+                <ul>
+                    <li>PostgreSQL</li>
+                    <li>MySQL</li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h4>Herramientas</h4>
+                <ul>
+                    <li>Git, GitHub</li>
+                    <li>Control de versiones</li>
+                    <li>Metodologías ágiles</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    <h2>Educación</h2>
+    <div class="section">
+        <h2 class="section-title">Certificaciones</h2>
+        <ul>
+            <li>CCNAv7: Switching, Routing and Wireless Essentials</li>
+            <li>CCNAv7: Introduction to Networks</li>
+        </ul>
+    </div>
 
-    <p><strong>Ingeniero en Tecnologías de la Información</strong> — Instituto Tecnológico de Roque <span style="float:right;">Diciembre 2025</span></p>
-    <p>
-        Formación en desarrollo de software, aplicaciones web, bases de datos relacionales y sistemas de información.
-    </p>
-
-    <p><strong>Técnico Programador</strong> — CECyTE San Juan de la Vega <span style="float:right;">2016 – 2019</span></p>
-    <p>
-        Fundamentos en programación Java, C#, estructuras de datos y bases de datos con PostgreSQL.
-    </p>
-
-    <h2>Habilidades Técnicas</h2>
-    <ul>
-        <li>Lenguajes: PHP, JavaScript, SQL, Java, C#</li>
-        <li>Frameworks: Symfony 3.x / 7.x</li>
-        <li>Frontend: HTML5, CSS3, JavaScript puro</li>
-        <li>Bases de datos: PostgreSQL, MySQL</li>
-        <li>Control de versiones: Git, GitHub</li>
-        <li>Seguridad: Autenticación, control de accesos, validaciones</li>
-    </ul>
-
-    <h2>Certificaciones</h2>
-    <ul>
-        <li>CCNAv7: Switching, Routing and Wireless Essentials</li>
-        <li>CCNAv7: Introduction to Networks</li>
-    </ul>
-
-    <h2>Competencias Profesionales</h2>
-    <ul>
-        <li>Aprendizaje rápido y adaptación tecnológica</li>
-        <li>Pensamiento analítico y resolución de problemas</li>
-        <li>Organización, responsabilidad y atención al detalle</li>
-        <li>Compromiso con la calidad del software</li>
-    </ul>
+    <div class="section">
+        <h2 class="section-title">Competencias Profesionales</h2>
+        <ul>
+            <li>Aprendizaje rápido y adaptación tecnológica</li>
+            <li>Pensamiento analítico y resolución de problemas</li>
+            <li>Organización, responsabilidad y atención al detalle</li>
+            <li>Compromiso con la calidad del software</li>
+            <li>Capacidad para trabajar en equipo y colaborar efectivamente</li>
+            <li>Habilidades de comunicación técnica y documentación</li>
+        </ul>
+    </div>
 
 </div>
+
+<script>
+    // Funcionalidad para descargar como PDF
+    document.getElementById('downloadPdf').addEventListener('click', function() {
+        const element = document.getElementById('cvContent');
+        const opt = {
+            margin: [15, 15, 15, 15],
+            filename: 'CV_Eduardo_Contreras_Jaimes.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { 
+                scale: 2,
+                useCORS: true,
+                letterRendering: true
+            },
+            jsPDF: { 
+                unit: 'mm', 
+                format: 'a4', 
+                orientation: 'portrait',
+                compress: true
+            }
+        };
+        
+        // Mostrar mensaje mientras se genera el PDF
+        const originalText = this.textContent;
+        this.textContent = 'Generando PDF...';
+        this.disabled = true;
+        
+        html2pdf().set(opt).from(element).save().then(() => {
+            this.textContent = originalText;
+            this.disabled = false;
+        });
+    });
+    
+    // Funcionalidad para imprimir
+    document.getElementById('printCv').addEventListener('click', function() {
+        window.print();
+    });
+    
+    // Optimización para impresión
+    window.addEventListener('beforeprint', function() {
+        // Asegurar que el CV se vea bien al imprimir
+        document.body.classList.add('printing');
+    });
+    
+    window.addEventListener('afterprint', function() {
+        document.body.classList.remove('printing');
+    });
+</script>
 
 </body>
 </html>
